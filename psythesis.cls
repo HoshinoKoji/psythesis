@@ -40,7 +40,6 @@
 \setCJKmathfont{方正标雅宋_GBK}
 
 % Section formats 章节格式
-\renewcommand*{\contentsname}{\hfill 目\hspace*{1\ccwd}录 \hfill}
 \ctexset{
     section = {
         number = {\arabic{section}},
@@ -130,6 +129,23 @@
 
     \textbf{KEY WORDS: }#3
     \clearpage
+    \pagestyle{general}
+}
+
+% Table of contents 目录
+\renewcommand*{\contentsname}{}
+\newcommand{\PSYtableofcontents}{
+    \pagestyle{empty}
+    \vspace*{15pt}
+
+    \begin{center}{\zihao{3}\bfseries\sffamily 目\hspace*{1\ccwd}录}\end{center}
+    
+    \vspace*{-20pt}
+
+    \tableofcontents
+
+    \setcounter{page}{0}
+    \newpage
     \pagestyle{general}
 }
 
