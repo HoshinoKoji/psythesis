@@ -23,17 +23,7 @@
 \setmainfont{Times New Roman}
 \setsansfont{Open Sans}
 \setmonofont{Source Code Pro}
-\setCJKmainfont{方正细雅宋_GBK}[
-  	BoldFont = 方正粗雅宋_GBK,
-    ItalicFont = 方正纤雅宋_GBK,
-]
-\setCJKsansfont{方正黑体_GBK}[
-    BoldFont = 思源黑体 Bold,
-]
-\setCJKmonofont{思源等宽}[
-  	ItalicFont = 思源等宽 EL,
-  	BoldItalicFont = 思源等宽 L,
-]
+\input{fontset.tex}
 
 % Math fonts 数学字体设置
 \RequirePackage{amsmath, amsfonts, stmaryrd, amssymb, amsbsy, cancel}
@@ -50,6 +40,7 @@
 \setCJKmathfont{方正标雅宋_GBK}
 
 % Section formats 章节格式
+\renewcommand*{\contentsname}{\hfill 目\hspace*{1\ccwd}录 \hfill}
 \ctexset{
     section = {
         number = {\arabic{section}},
@@ -89,7 +80,61 @@
 }
 \pagestyle{general}
 
+% Title page 标题页
+\renewcommand{\maketitle}{
+    \thispagestyle{empty}
+    \begin{center}            
+        {\zihao{3}\sffamily\bfseries\@title}\vspace*{2em}
+        
+        {\zihao{4}\@author}\vspace*{0.5em}
+        
+        {\zihao{-4}日期：\@date}
+    \end{center}
+    \clearpage
+}
+
+% Abstract 摘要
+\newcommand{\zhabstract}[2]{
+    \pagestyle{empty}
+    \begin{center}
+        {\sffamily\bfseries\zihao{3}\@title}
+        
+        \vspace*{15pt}
+
+        {\sffamily\zihao{-3}摘\hspace*{1\ccwd}要}
+
+    \end{center}
+    
+    #1
+    
+    \vspace*{14pt}
+
+    \textsf{关键词：}#2
+    \clearpage
+    \pagestyle{general}
+}
+\newcommand{\enabstract}[3]{
+    \pagestyle{empty}
+    \begin{center}
+        {\rmfamily\zihao{3}#1}
+        
+        \vspace*{15pt}
+
+        {\rmfamily\bfseries\zihao{-3}ABSTRACT}
+
+    \end{center}
+    
+    #2
+    
+    \vspace*{14pt}
+
+    \textbf{KEY WORDS: }#3
+    \clearpage
+    \pagestyle{general}
+}
+
 % Miscellaneous 杂项
+\RequirePackage{ulem}
 \RequirePackage{graphicx}
 \RequirePackage[svgnames, dvipsnames]{xcolor}
 \RequirePackage[colorlinks, linkcolor=black]{hyperref}

@@ -1,16 +1,28 @@
 \documentclass{psythesis}
+\usepackage{lipsum}
 \usepackage{zhlipsum}
 
-\title{\zihao{3}\sffamily\bfseries 测试}
-\author{\zihao{4} 测试作者}
-\date{\zihao{-4}\today}
+\title{测试标题}
+\author{测试作者}
+\date{\today}
 
 \begin{document}
     \maketitle
+    \zhabstract{\zhlipsum[1-3][name=xiangyu]}
+        {关键词一，关键词二，关键词三}
+    \enabstract{TEST TITLE}{\lipsum[1-3]}
+        {Key word, Key word, Key word}
+    
+    \thispagestyle{empty}
+    \tableofcontents
+    \setcounter{page}{0}
+    \newpage
 
     \section{测试章}
+    \zhlipsum[1][name=xiangyu]
     \subsection{测试节}
+    \zhlipsum[2][name=xiangyu]
     \subsubsection{测试小节}
-    \zhlipsum[name=xiangyu]
+    \zhlipsum[3-8][name=xiangyu]
 
 \end{document}
