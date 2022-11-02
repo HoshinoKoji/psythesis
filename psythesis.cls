@@ -132,7 +132,7 @@
 
 % Table of contents 目录
 \RequirePackage[titles]{tocloft}
-\renewcommand*{\contentsname}{}
+\renewcommand*{\contentsname}{\vspace*{-\baselineskip}}
 \renewcommand\cftdot{$\cdot$}
 \renewcommand\cftsecdotsep{\cftdotsep}
 \renewcommand\cftsecleader{\cftdotfill{\cftsecdotsep}}
@@ -141,7 +141,6 @@
     \vspace*{15pt}
 
     {\noindent\hfill \zihao{3}\bfseries\sffamily 目\hspace*{1\ccwd}录 \hfill}
-
     \tableofcontents
 
     \newpage
