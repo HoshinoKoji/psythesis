@@ -20,10 +20,8 @@
 \setlength{\baselineskip}{20pt}
 
 % Text fonts 正文字体设置
-\setmainfont{Times New Roman}
-\setsansfont{Open Sans}
-\setmonofont{Source Code Pro}
-\input{fontset.tex}
+\input{en-fontset.tex}
+\input{zh-fontset.tex}
 
 % Math fonts 数学字体设置
 \RequirePackage{amsmath, amsfonts, stmaryrd, amssymb, amsbsy, cancel}
@@ -35,9 +33,7 @@
     math-style = TeX,
     bold-style = ISO,
 ]{unicode-math}
-\setmathfont{Latin Modern Math}
-\setmathfont[range=\mathbb]{texgyretermes-math.otf}
-\setCJKmathfont{方正标雅宋_GBK}
+\input{math-fontset.tex}
 
 % Section formats 章节格式
 \ctexset{
