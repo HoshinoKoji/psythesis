@@ -96,7 +96,7 @@
         
         \vspace*{15pt}
 
-        {\sffamily\zihao{-3}摘\hspace*{1\ccwd}要}
+        {\sffamily\bfseries\zihao{-3}摘\hspace*{1\ccwd}要}
     \end{center}
     
     #1
