@@ -101,7 +101,6 @@
         \vspace*{15pt}
 
         {\sffamily\zihao{-3}摘\hspace*{1\ccwd}要}
-
     \end{center}
     
     #1
@@ -120,7 +119,6 @@
         \vspace*{15pt}
 
         {\rmfamily\bfseries\zihao{-3}ABSTRACT}
-
     \end{center}
     
     #2
@@ -133,19 +131,21 @@
 }
 
 % Table of contents 目录
+\RequirePackage[titles]{tocloft}
 \renewcommand*{\contentsname}{}
+\renewcommand\cftdot{$\cdot$}
+\renewcommand\cftsecdotsep{\cftdotsep}
+\renewcommand\cftsecleader{\cftdotfill{\cftsecdotsep}}
 \newcommand{\PSYtableofcontents}{
     \pagestyle{empty}
     \vspace*{15pt}
 
-    \begin{center}{\zihao{3}\bfseries\sffamily 目\hspace*{1\ccwd}录}\end{center}
-    
-    \vspace*{-20pt}
+    {\noindent\hfill \zihao{3}\bfseries\sffamily 目\hspace*{1\ccwd}录 \hfill}
 
     \tableofcontents
 
-    \setcounter{page}{0}
     \newpage
+    \setcounter{page}{1}
     \pagestyle{general}
 }
 
