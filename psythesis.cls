@@ -91,14 +91,14 @@
 % Abstract 摘要
 \newcommand{\zhabstract}[2]{
     \pagestyle{empty}
-    \begin{center}
-        {\sffamily\bfseries\zihao{3}\@title}
+    {\noindent\sffamily\bfseries\zihao{3}\hfill\@title\hfill}
         
-        \vspace*{20pt}
-
-        {\sffamily\bfseries\zihao{-3}摘\hspace*{1\ccwd}要}
-    \end{center}
+    \vspace*{20pt}
     
+    {\noindent\sffamily\bfseries\zihao{-3}\hfill{摘\hspace*{1\ccwd}要}\hfill}
+    
+    \vspace*{20pt}
+
     {\zihao{4}\setlength{\baselineskip}{20pt} #1}
     
     \vspace*{20pt}
@@ -109,13 +109,13 @@
 }
 \newcommand{\enabstract}[3]{
     \pagestyle{empty}
-    \begin{center}
-        {\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont #1}
+    {\noindent\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont\hfill #1 \hfill}
         
-        \vspace*{20pt}
-
-        {\rmfamily\bfseries\fontsize{15pt}{\baselineskip}\selectfont ABSTRACT}
-    \end{center}
+    \vspace*{20pt}
+    
+    {\noindent\rmfamily\bfseries\fontsize{15pt}{\baselineskip}\selectfont\hfill ABSTRACT \hfill}
+    
+    \vspace*{20pt}
     
     {\rmfamily\upshape\fontsize{14pt}{\baselineskip}\selectfont%
      \setlength{\baselineskip}{20pt}#2}
