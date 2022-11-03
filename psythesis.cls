@@ -16,7 +16,7 @@
 }
 
 % Spacing 间距
-\linespread{1.39}
+% \linespread{1.39}
 \setlength{\baselineskip}{20pt}
 
 % Text fonts 正文字体设置
@@ -99,7 +99,7 @@
         {\sffamily\bfseries\zihao{-3}摘\hspace*{1\ccwd}要}
     \end{center}
     
-    {\zihao{4}#1}
+    {\zihao{4}\setlength{\baselineskip}{20pt} #1}
     
     \vspace*{20pt}
 
@@ -110,18 +110,15 @@
 \newcommand{\enabstract}[3]{
     \pagestyle{empty}
     \begin{center}
-        {\rmfamily\bfseries\fontsize{16pt}{20pt}\selectfont #1}
+        {\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont #1}
         
         \vspace*{20pt}
 
-        {\rmfamily\bfseries\fontsize{15pt}{20pt}\selectfont ABSTRACT}
+        {\rmfamily\bfseries\fontsize{15pt}{\baselineskip}\selectfont ABSTRACT}
     \end{center}
     
-    {
-        \rmfamily\upshape\fontsize{14pt}{\baselineskip}\selectfont
-        \setlength{\baselineskip}{20pt}
-        #2
-    }
+    {\rmfamily\upshape\fontsize{14pt}{\baselineskip}\selectfont%
+     \setlength{\baselineskip}{20pt}#2}
     
     \vspace*{20pt}
 
