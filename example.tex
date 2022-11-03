@@ -10,16 +10,23 @@
     \maketitle
     \zhabstract{\zhlipsum[1-3][name=xiangyu]}
         {关键词一，关键词二，关键词三}
-    \enabstract{TEST TITLE}{\lipsum[1-3]}
+    \enabstract{TEST TITLE}{\lipsum[1-2]}
         {Key word, Key word, Key word}
     
     \PSYtableofcontents
 
-    \section{测试章}
+    \section{纯文本测试章}
     \zhlipsum[1][name=xiangyu]
     \subsection{测试节}
     \zhlipsum[2][name=xiangyu]
     \subsubsection{测试小节}
     \zhlipsum[3-8][name=xiangyu]
+    
+    \section{其他格式测试章}
+    \subsection{测试公式}
+    \zhlipsum[1]
+    \[
+        \varphi(x, y) = pxy
+    \]
 
 \end{document}

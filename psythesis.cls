@@ -30,7 +30,7 @@
     mathit = sym,
     mathup = sym,
     mathbf = sym,
-    math-style = TeX,
+    math-style = ISO,
     bold-style = ISO,
 ]{unicode-math}
 \input{math-fontset.tex}
@@ -94,34 +94,38 @@
     \begin{center}
         {\sffamily\bfseries\zihao{3}\@title}
         
-        \vspace*{15pt}
+        \vspace*{20pt}
 
         {\sffamily\bfseries\zihao{-3}摘\hspace*{1\ccwd}要}
     \end{center}
     
-    #1
+    {\zihao{4}#1}
     
-    \vspace*{14pt}
+    \vspace*{20pt}
 
-    \textsf{关键词：}#2
+    {\zihao{4}{\sffamily\bfseries 关键词：}#2}
     \clearpage
     \pagestyle{general}
 }
 \newcommand{\enabstract}[3]{
     \pagestyle{empty}
     \begin{center}
-        {\rmfamily\zihao{3}#1}
+        {\rmfamily\bfseries\fontsize{16pt}{20pt}\selectfont #1}
         
-        \vspace*{15pt}
+        \vspace*{20pt}
 
-        {\rmfamily\bfseries\zihao{-3}ABSTRACT}
+        {\rmfamily\bfseries\fontsize{15pt}{20pt}\selectfont ABSTRACT}
     \end{center}
     
-    #2
+    {
+        \rmfamily\upshape\fontsize{14pt}{\baselineskip}\selectfont
+        \setlength{\baselineskip}{20pt}
+        #2
+    }
     
-    \vspace*{14pt}
+    \vspace*{20pt}
 
-    \textbf{KEY WORDS: }#3
+    {\zihao{4}\textbf{KEY WORDS: }#3}
     \clearpage
     \pagestyle{general}
 }
@@ -134,7 +138,7 @@
 \renewcommand\cftsecleader{\cftdotfill{\cftsecdotsep}}
 \newcommand{\PSYtableofcontents}{
     \pagestyle{empty}
-    \vspace*{15pt}
+    \vspace*{20pt}
 
     {\noindent\hfill \zihao{3}\bfseries\sffamily 目\hspace*{1\ccwd}录 \hfill}
     \tableofcontents
