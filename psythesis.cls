@@ -118,7 +118,7 @@
     \vspace*{20pt}
     
     {\rmfamily\upshape\fontsize{14pt}{\baselineskip}\selectfont%
-     \setlength{\baselineskip}{20pt}#2}
+     \setlength{\baselineskip}{20pt}#2\par}
     
     \vspace*{20pt}
 
@@ -133,6 +133,7 @@
 \renewcommand\cftdot{$\cdot$}
 \renewcommand\cftsecdotsep{\cftdotsep}
 \renewcommand\cftsecleader{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{0em}
 \newcommand{\PSYtableofcontents}{
     \pagestyle{empty}
     \vspace*{20pt}
