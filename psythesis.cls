@@ -89,8 +89,19 @@
 }
 
 % Abstract 摘要
-\newcommand{\zhabstract}[2]{
-    \pagestyle{empty}
+\RequirePackage{ifoddpage}
+\newcommand{\psythesis@oddnewpage}{
+    \checkoddpage
+    \ifoddpage
+        \clearpage
+        
+        \null\clearpage
+    \else
+        \clearpage
+    \fi
+}
+\newcommand{\zhabstract}[3][empty]{
+    \pagestyle{#1}
     {\noindent\sffamily\bfseries\zihao{3}\hfill\@title\hfill}
         
     \vspace*{20pt}
@@ -99,12 +110,13 @@
     
     \vspace*{20pt}
 
-    {\zihao{4}\setlength{\baselineskip}{20pt} #1}
+    {\zihao{4}\setlength{\baselineskip}{20pt} #2}
     
     \vspace*{20pt}
 
-    {\zihao{4}{\sffamily\bfseries 关键词：}#2}
-    \clearpage
+    {\zihao{4}{\sffamily\bfseries 关键词：}#3}
+    
+    \psythesis@oddnewpage
     \pagestyle{general}
 }
 \newcommand{\enabstract}[3]{
@@ -123,7 +135,8 @@
     \vspace*{20pt}
 
     {\zihao{4}\textbf{KEY WORDS: }#3}
-    \clearpage
+    
+    \psythesis@oddnewpage
     \pagestyle{general}
 }
 
@@ -141,7 +154,7 @@
     {\noindent\hfill \zihao{3}\bfseries\sffamily 目\hspace*{1\ccwd}录 \hfill}
     \tableofcontents
 
-    \newpage
+    \clearpage
     \setcounter{page}{1}
     \pagestyle{general}
 }
