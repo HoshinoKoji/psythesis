@@ -119,9 +119,9 @@
     \psythesis@oddnewpage
     \pagestyle{general}
 }
-\newcommand{\enabstract}[3]{
-    \pagestyle{empty}
-    {\noindent\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont\hfill #1 \hfill}
+\newcommand{\enabstract}[4][empty]{
+    \pagestyle{#1}
+    {\noindent\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont\hfill #2 \hfill}
         
     \vspace*{20pt}
     
@@ -130,11 +130,11 @@
     \vspace*{20pt}
     
     {\rmfamily\upshape\fontsize{14pt}{\baselineskip}\selectfont%
-     \setlength{\baselineskip}{20pt}#2\par}
+     \setlength{\baselineskip}{20pt}#3\par}
     
     \vspace*{20pt}
 
-    {\zihao{4}\textbf{KEY WORDS: }#3}
+    {\zihao{4}\textbf{KEY WORDS: }#4}
     
     \psythesis@oddnewpage
     \pagestyle{general}
