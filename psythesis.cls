@@ -159,8 +159,13 @@
     \pagestyle{general}
 }
 
+% Listings 列表
+\RequirePackage{enumerate, enumitem, listings}
+
 % Miscellaneous 杂项
 \RequirePackage{ulem}
 \RequirePackage{graphicx}
 \RequirePackage[svgnames, dvipsnames]{xcolor}
 \RequirePackage[colorlinks, linkcolor=black]{hyperref}
+\RequirePackage{tikz}
+\RequirePackage{float}
