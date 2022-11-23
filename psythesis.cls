@@ -167,7 +167,7 @@
 % 图片与表格
 \RequirePackage{caption}
 \captionsetup{labelsep=quad}
-\setlength{\belowcaptionskip}{3pt}
+\setlength{\belowcaptionskip}{0pt}
 
 % Miscellaneous 杂项
 \RequirePackage{ulem}
