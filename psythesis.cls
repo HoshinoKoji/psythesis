@@ -162,7 +162,7 @@
 % Listings 列表
 \RequirePackage{enumerate, enumitem, listings}
 \setenumerate[1]{labelsep=0.65em, leftmargin=3.65em, itemsep=2.2pt, topsep=2.5pt}
-\setitemize[1]{itemsep=2.2pt, topsep=2.5pt}
+\setitemize[1]{labelsep=0.65em, leftmargin=3.65em, itemsep=2.2pt, topsep=2.5pt}
 
 % 图片与表格
 \RequirePackage{caption}
