@@ -16,8 +16,8 @@
 }
 
 % Spacing 间距
-% \linespread{1.39}
-\setlength{\baselineskip}{20pt}
+\linespread{1.39}
+% \setlength{\baselineskip}{20pt}
 
 % Text fonts 正文字体设置
 \input{en-fontset.tex}
@@ -159,6 +159,26 @@
     \pagestyle{general}
 }
 
+% References 参考文献
+\RequirePackage{csquotes, url}
+\RequirePackage[style=apa, backend=biber]{biblatex}
+% \AtBeginDocument{\ctexset{bibname = {~}}}
+\setlength{\bibhang}{2em}
+\AtBeginBibliography{
+    \fontsize{10.5pt}{\baselineskip}\selectfont
+    \setlength{\baselineskip}{16pt}
+}
+\newcommand{\zhreferences}{
+    \psythesis@oddnewpage
+    \vspace*{10pt}
+    
+    {\noindent\sffamily\bfseries\zihao{-3}\hfill{参考文献}\hfill}
+
+    \vspace*{-6pt}
+    
+    \nocite{*}\printbibliography[heading=none]
+}
+
 % Listings 列表
 \RequirePackage{enumerate, enumitem, listings}
 \setenumerate[1]{labelsep=0.65em, leftmargin=3.65em, itemsep=2.2pt, topsep=2.5pt}
@@ -166,13 +186,14 @@
 
 % 图片与表格
 \RequirePackage{caption}
-\captionsetup{labelsep=quad}
-\setlength{\belowcaptionskip}{0pt}
+\DeclareCaptionFormat{psythesis}{\fontsize{10.5pt}{20pt}\selectfont\textbf{#1#2}#3}
+\captionsetup{labelsep=quad, format=psythesis}
+\setlength{\belowcaptionskip}{-10.5pt}
 
 % Miscellaneous 杂项
-\RequirePackage{ulem}
+\RequirePackage[normalem]{ulem}
 \RequirePackage{graphicx}
 \RequirePackage[svgnames, dvipsnames]{xcolor}
-\RequirePackage[colorlinks, linkcolor=black]{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{tikz}
 \RequirePackage{float}
