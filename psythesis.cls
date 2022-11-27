@@ -102,7 +102,10 @@
 }
 \newcommand{\zhabstract}[3][empty]{
     \pagestyle{#1}
-    {\noindent\sffamily\bfseries\zihao{3}\hfill\@title\hfill}
+    \noindent\begin{minipage}{\textwidth}
+        \centering
+        {\sffamily\bfseries\zihao{3}\@title}
+    \end{minipage}
         
     \vspace*{20pt}
     
@@ -121,7 +124,10 @@
 }
 \newcommand{\enabstract}[4][empty]{
     \pagestyle{#1}
-    {\noindent\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont\hfill #2 \hfill}
+    \noindent\begin{minipage}
+        \centering
+        {\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont #2}
+    \end{minipage}
         
     \vspace*{20pt}
     
