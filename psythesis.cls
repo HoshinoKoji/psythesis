@@ -178,11 +178,11 @@
     \psythesis@oddnewpage
     \vspace*{10pt}
     
-    {\noindent\sffamily\bfseries\zihao{-3}\hfill{参考文献}\hfill}
+    {\noindent\sffamily\bfseries\zihao{-3}\setlength{\baselineskip}{20pt}\hfill{参考文献}\hfill}
 
-    \vspace*{-6pt}
+    \vspace*{10pt}
     
-    \nocite{*}\printbibliography[heading=none]
+    \nocite{*}\printbibliography[title=\vspace*{-20pt}\vspace*{-1em}]
 }
 
 % Listings 列表
