@@ -17,7 +17,7 @@
 
 % Spacing 间距
 \linespread{1.39}
-% \setlength{\baselineskip}{20pt}
+\setlength{\parskip}{0pt}
 
 % Text fonts 正文字体设置
 \input{en-fontset.tex}
@@ -43,8 +43,9 @@
         nameformat = {},
         aftername = {\hspace*{1em}},
         titleformat = {\sffamily},
-        beforeskip = 0.5em,
+        beforeskip = 0em, % 由于分页，Word段首距离不生效
         afterskip = 0.5em,
+        break = {\clearpage},
     },
     subsection = {
         number = {\arabic{section}.\arabic{subsection}},
@@ -109,7 +110,7 @@
         
     \vspace*{20pt}
     
-    {\noindent\sffamily\bfseries\zihao{-3}\hfill{摘\hspace*{1\ccwd}要}\hfill}
+    {\noindent\sffamily\bfseries\zihao{-3}\hfill{摘\hspace*{0.8em}要}\hfill}
     
     \vspace*{20pt}
 
@@ -124,7 +125,7 @@
 }
 \newcommand{\enabstract}[4][empty]{
     \pagestyle{#1}
-    \noindent\begin{minipage}
+    \noindent\begin{minipage}{\textwidth}
         \centering
         {\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont #2}
     \end{minipage}
@@ -157,7 +158,7 @@
     \pagestyle{empty}
     \vspace*{20pt}
 
-    {\noindent\hfill \zihao{3}\bfseries\sffamily 目\hspace*{1\ccwd}录 \hfill}
+    {\noindent\hfill \zihao{3}\bfseries\sffamily 目\hspace*{0.8em}录 \hfill}
     \tableofcontents
 
     \clearpage
@@ -176,13 +177,9 @@
 }
 \newcommand{\zhreferences}{
     \psythesis@oddnewpage
-    \vspace*{10pt}
+    {\noindent\sffamily\bfseries\zihao{3}\setlength{\baselineskip}{20pt}\hfill{参考文献}\hfill}
     
-    {\noindent\sffamily\bfseries\zihao{-3}\setlength{\baselineskip}{20pt}\hfill{参考文献}\hfill}
-
-    \vspace*{10pt}
-    
-    \nocite{*}\printbibliography[title=\vspace*{-20pt}\vspace*{-1em}]
+    \nocite{*}\printbibliography[heading=none]
 }
 
 % Listings 列表
