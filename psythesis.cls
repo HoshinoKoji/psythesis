@@ -7,11 +7,11 @@
 \geometry{
 	paper = a4paper,
 	top = 2.5cm,
-	bottom = 2.0cm,
+	bottom = 1.95cm,
 	left = 2.5cm,
 	right = 2.0cm,
 	% headheight = 15pt,
-	% footskip = 1.5cm,
+	footskip = 0.95cm,
 	% headsep = 1.2cm,
 }
 
@@ -114,7 +114,7 @@
     
     \vspace*{20pt}
 
-    {\zihao{4}\setlength{\baselineskip}{20pt} #2}
+    {\fontsize{14pt}{20pt}\selectfont #2}
     
     \vspace*{20pt}
 
