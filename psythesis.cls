@@ -17,7 +17,7 @@
 
 % Spacing 间距
 \linespread{1.39}
-\setlength{\parskip}{0pt}
+\setlength{\parskip}{0pt plus 2pt}
 
 % Text fonts 正文字体设置
 \input{en-fontset.tex}
@@ -30,7 +30,7 @@
     mathit = sym,
     mathup = sym,
     mathbf = sym,
-    math-style = ISO,
+    math-style = TeX,
     bold-style = ISO,
 ]{unicode-math}
 \input{math-fontset.tex}
@@ -44,7 +44,7 @@
         aftername = {\hspace*{1em}},
         titleformat = {\sffamily},
         beforeskip = 0em, % 由于分页，Word段首距离不生效
-        afterskip = 0.5em,
+        afterskip = 0.5em plus 1pt minus 1pt,
         break = {\clearpage},
     },
     subsection = {
@@ -53,8 +53,8 @@
         nameformat = {},
         aftername = {\hspace*{0.5em}},
         titleformat = {\sffamily},
-        beforeskip = 0.5em,
-        afterskip = 0.5em,
+        beforeskip = 0.5em plus 1pt minus 1pt,
+        afterskip = 0.5em plus 1pt minus 1pt,
     },
     subsubsection = {
         number = {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
@@ -62,8 +62,8 @@
         nameformat = {},
         aftername = {\hspace*{0.5em}},
         titleformat = {\sffamily},
-        beforeskip = 0.5em,
-        afterskip = 0.5em,
+        beforeskip = 0.5em plus 1pt minus 1pt,
+        afterskip = 0.5em plus 1pt minus 1pt,
     },
 }
 
@@ -149,19 +149,25 @@
 
 % Table of contents 目录
 \RequirePackage[titles]{tocloft}
-\renewcommand*{\contentsname}{\vspace*{-\baselineskip}}
 \renewcommand\cftdot{$\cdot$}
 \renewcommand\cftsecdotsep{\cftdotsep}
 \renewcommand\cftsecleader{\cftdotfill{\cftsecdotsep}}
 \setlength{\cftbeforesecskip}{0em}
 \newcommand{\PSYtableofcontents}{
     \pagestyle{empty}
-    \vspace*{20pt}
+    {
+        \ctexset{section = {
+            break = {},
+            beforeskip = 20pt,
+            afterskip = 20pt,
+            format = {\centering\zihao{3}\bfseries\sffamily}
+        }}
+        \renewcommand*{\contentsname}{目\hspace*{0.8em}录}
 
-    {\noindent\hfill \zihao{3}\bfseries\sffamily 目\hspace*{0.8em}录 \hfill}
-    \tableofcontents
+        \tableofcontents
+    }
 
-    \clearpage
+    \psythesis@oddnewpage
     \setcounter{page}{1}
     \pagestyle{general}
 }
@@ -169,17 +175,39 @@
 % References 参考文献
 \RequirePackage{csquotes, url}
 \RequirePackage[style=apa, backend=biber]{biblatex}
-% \AtBeginDocument{\ctexset{bibname = {~}}}
+\AtBeginDocument{\ctexset{bibname = {参考文献}}}
 \setlength{\bibhang}{2em}
 \AtBeginBibliography{
+    \addcontentsline{toc}{section}{参考文献}
     \fontsize{10.5pt}{\baselineskip}\selectfont
     \setlength{\baselineskip}{16pt}
 }
 \newcommand{\zhreferences}{
     \psythesis@oddnewpage
-    {\noindent\sffamily\bfseries\zihao{3}\setlength{\baselineskip}{20pt}\hfill{参考文献}\hfill}
+    {
+        \ctexset{section = {
+            break = {},
+            beforeskip = 10pt,
+            afterskip = 10pt,
+            format = {\centering\zihao{3}\bfseries\sffamily}
+        }}
     
-    \nocite{*}\printbibliography[heading=none]
+        \nocite{*}\printbibliography
+    }
+}
+
+% Appendices 附录
+\newcommand{\PSYappendix}{
+    \psythesis@oddnewpage
+    \appendix
+    \ctexset{section = {
+        name = {附录,},
+        number = {\Alph{section}},
+        beforeskip = 10pt,
+        afterskip = 10pt,
+        format = {\centering\zihao{3}\bfseries},
+        % titleformat = {\rmfamily},
+    }}
 }
 
 % Listings 列表
@@ -189,9 +217,10 @@
 
 % 图片与表格
 \RequirePackage{caption}
-\DeclareCaptionFormat{psythesis}{\fontsize{10.5pt}{20pt}\selectfont\textbf{#1#2}#3}
+\DeclareCaptionFormat{psythesis}{\fontsize{10.5pt}{12.6pt}\selectfont\textbf{#1#2}#3}
 \captionsetup{labelsep=quad, format=psythesis}
-\setlength{\belowcaptionskip}{-10.5pt}
+\setlength{\abovecaptionskip}{4pt plus 1pt}
+\setlength{\belowcaptionskip}{-10.5pt plus 1pt}
 
 % Miscellaneous 杂项
 \RequirePackage[normalem]{ulem}
@@ -200,3 +229,5 @@
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage{tikz}
 \RequirePackage{float}
+\setlength\abovedisplayskip{4pt plus 2pt}
+\setlength\belowdisplayskip{4pt plus 2pt}
