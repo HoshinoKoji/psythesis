@@ -44,7 +44,7 @@
         aftername = {\hspace*{1em}},
         titleformat = {\sffamily},
         beforeskip = 0em, % 由于分页，Word段首距离不生效
-        afterskip = 0.5em plus 1pt minus 1pt,
+        afterskip = 0.5em plus 1.5pt minus 1.5pt,
         break = {\clearpage},
     },
     subsection = {
@@ -53,8 +53,8 @@
         nameformat = {},
         aftername = {\hspace*{0.5em}},
         titleformat = {\sffamily},
-        beforeskip = 0.5em plus 1pt minus 1pt,
-        afterskip = 0.5em plus 1pt minus 1pt,
+        beforeskip = 0.5em plus 1.5pt minus 1.5pt,
+        afterskip = 0.5em plus 1.5pt minus 1.5pt,
     },
     subsubsection = {
         number = {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
@@ -62,8 +62,8 @@
         nameformat = {},
         aftername = {\hspace*{0.5em}},
         titleformat = {\sffamily},
-        beforeskip = 0.5em plus 1pt minus 1pt,
-        afterskip = 0.5em plus 1pt minus 1pt,
+        beforeskip = 0.5em plus 1.5pt minus 1.5pt,
+        afterskip = 0.5em plus 1.5pt minus 1.5pt,
     },
 }
 
@@ -77,16 +77,22 @@
 \pagestyle{general}
 
 % Title page 标题页
+\RequirePackage[absolute, overlay]{textpos}
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{\paperheight}
 \renewcommand{\maketitle}{
     \thispagestyle{empty}
-    \begin{center}            
-        {\zihao{3}\sffamily\bfseries\@title}\vspace*{2em}
-        
-        {\zihao{4}\@author}\vspace*{0.5em}
-        
-        {\zihao{-4}日期：\@date}
-    \end{center}
-    \clearpage
+    \begin{textblock}{0.7}(0.2695, 0.113)
+        \noindent\includegraphics[width=7.9cm]{bnu.jpg}
+    \end{textblock}
+    \begin{textblock}{1.0}(0, 0.201)
+        {\noindent\fontsize{36pt}{\baselineskip}\selectfont \hfill 本科生毕业论文（设计）\hfill}
+    \end{textblock}
+    
+    \null\clearpage
+    
+    \thispagestyle{empty}
+    \null\clearpage
 }
 
 % Abstract 摘要
@@ -101,6 +107,16 @@
         \clearpage
     \fi
 }
+\newcommand{\psythesis@evennewpage}{
+    \checkoddpage
+    \ifoddpage
+        \clearpage
+    \else
+        \clearpage
+            
+        \null\clearpage
+    \fi
+}
 \newcommand{\zhabstract}[3][empty]{
     \pagestyle{#1}
     \noindent\begin{minipage}{\textwidth}
@@ -108,11 +124,17 @@
         {\sffamily\bfseries\zihao{3}\@title}
     \end{minipage}
         
-    \vspace*{20pt}
-    
-    {\noindent\sffamily\bfseries\zihao{-3}\hfill{摘\hspace*{0.8em}要}\hfill}
-    
-    \vspace*{20pt}
+    {
+        \ctexset{section = {
+            break = {},
+            beforeskip = 17pt,
+            afterskip = 20pt,
+            titleformat = {\centering\bfseries\sffamily\zihao{-3}}
+        }}
+        
+        \section*{摘\hspace*{0.8em}要}
+        \bookmark[dest=\HyperLocalCurrentHref, level=1]{摘要}
+    }
 
     {\fontsize{14pt}{20pt}\selectfont #2}
     
@@ -127,14 +149,20 @@
     \pagestyle{#1}
     \noindent\begin{minipage}{\textwidth}
         \centering
-        {\rmfamily\bfseries\fontsize{16pt}{\baselineskip}\selectfont #2}
-    \end{minipage}
+        {\rmfamily\bfseries\fontsize{16pt}{20pt}\selectfont \MakeUppercase{#2}}
+    \end{minipage}  
+    
+    {
+        \ctexset{section = {
+            break = {},
+            beforeskip = 27pt,
+            afterskip = 20pt,
+            titleformat = {\centering\bfseries\rmfamily\zihao{-3}}
+        }}
         
-    \vspace*{20pt}
-    
-    {\noindent\rmfamily\bfseries\fontsize{15pt}{\baselineskip}\selectfont\hfill ABSTRACT \hfill}
-    
-    \vspace*{20pt}
+        \section*{ABSTRACT}
+        \bookmark[dest=\HyperLocalCurrentHref, level=1]{ABSTRACT}
+    }
     
     {\rmfamily\upshape\fontsize{14pt}{\baselineskip}\selectfont%
      \setlength{\baselineskip}{20pt}#3\par}
@@ -158,11 +186,12 @@
     {
         \ctexset{section = {
             break = {},
-            beforeskip = 20pt,
-            afterskip = 20pt,
-            format = {\centering\zihao{3}\bfseries\sffamily}
+            beforeskip = 1em,
+            afterskip = 1em,
+            format = {\centering\zihao{3}\bfseries\sffamily},
+            aftertitle = {\bookmark[dest=\HyperLocalCurrentHref, level=1]{目录}}
         }}
-        \renewcommand*{\contentsname}{目\hspace*{0.8em}录}
+        \renewcommand*{\contentsname}{目\hspace*{1em}录}
 
         \tableofcontents
     }
@@ -206,7 +235,7 @@
         beforeskip = 10pt,
         afterskip = 10pt,
         format = {\centering\zihao{3}\bfseries},
-        % titleformat = {\rmfamily},
+        break = {\psythesis@evennewpage},
     }}
 }
 
@@ -227,7 +256,8 @@
 \RequirePackage{graphicx}
 \RequirePackage[svgnames, dvipsnames]{xcolor}
 \RequirePackage[hidelinks]{hyperref}
+\RequirePackage{bookmark}
 \RequirePackage{tikz}
 \RequirePackage{float}
-\setlength\abovedisplayskip{4pt plus 2pt}
-\setlength\belowdisplayskip{4pt plus 2pt}
+\setlength\abovedisplayskip{4pt plus 1pt}
+\setlength\belowdisplayskip{4pt plus 1pt}
