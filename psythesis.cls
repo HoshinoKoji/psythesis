@@ -85,11 +85,23 @@
     \begin{textblock}{0.7}(0.2695, 0.113)
         \noindent\includegraphics[width=7.9cm]{bnu.jpg}
     \end{textblock}
-    \begin{textblock}{1.0}(0, 0.201)
-        {\noindent\fontsize{36pt}{\baselineskip}\selectfont \hfill 本科生毕业论文（设计）\hfill}
-    \end{textblock}
+
+    \vspace*{3.1cm}
     
-    \null\clearpage
+    {\noindent\CJKfamily{semiboldsong}\zihao{-0} \hfill 本\hspace{6pt}科\hspace{6pt}生\hspace{6pt}毕\hspace{6pt}业\hspace{6pt}论\hspace{6pt}文（设\hspace{6pt}计）\hfill}
+    
+    \vspace*{2.67cm}
+
+    {\noindent\hspace*{0.5cm}\bfseries\sffamily\zihao{3} 毕业论文（设计）题目：}
+
+    \vspace*{12pt}
+
+    {\noindent\begin{minipage}{\textwidth}
+        \centering
+        \uline{\CJKfamily{semiboldsong}\zihao{3} \@title}
+    \end{minipage}}
+
+    \clearpage
     
     \thispagestyle{empty}
     \null\clearpage
