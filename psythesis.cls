@@ -71,7 +71,7 @@
 \RequirePackage{fancyhdr}
 \fancypagestyle{general}{
     \fancyhead{}
-    \fancyfoot{\centering\thepage}
+    \fancyfoot{\centering\zihao{-5}\thepage}
     \renewcommand\headrulewidth{0pt}
 }
 \pagestyle{general}
@@ -133,7 +133,7 @@
     \pagestyle{#1}
     \noindent\begin{minipage}{\textwidth}
         \centering
-        {\sffamily\bfseries\zihao{3}\@title}
+        {\sffamily\bfseries\setlength{\baselineskip}{20pt}\zihao{3}\@title}
     \end{minipage}
         
     {
@@ -222,6 +222,8 @@
     \addcontentsline{toc}{section}{参考文献}
     \fontsize{10.5pt}{\baselineskip}\selectfont
     \setlength{\baselineskip}{16pt}
+    \clubpenalty=0
+    \widowpenalty=0
 }
 \newcommand{\zhreferences}{
     \psythesis@oddnewpage
